@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Найди клад!</title>
+</head>
+
+<body>
+    <div><span>Ваши монеты: </span><span id="coins"></span></div>
+
+    <div style="font-size: 50px ;">
+        <span id="one">-</span><span id="two">-</span><span id="three">-</span>
+    </div>
+
+    <button>SPIN</button>
+
+
+   
+    <p id="distance"></p>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+
+        var getRandomNumber = function (size) {
+            return Math.floor(Math.random() * size);
+        };
+
+       
+
+        //добавляем элементу img обработчик клико
+        var time = 500;
+        var a = 0;
+        var b = 0;
+        var c = 0;
+        var d = 0;
+        $("button").click(function (event) {
+
+            //записываем в элемент #distance новый текст
+            var numbOnCube = getRandomNumber(6) + 1;
+
+            $("#one").text("-");
+            $("#two").text("-");
+            $("#three").text("-");
+
+
+            setTimeout(function () {
+                a = getRandomNumber(6) + 1;
+                $("#one").text(a);
+            }, time);
+
+            setTimeout(function () {
+                b = getRandomNumber(6) + 1;
+                $("#two").text(b);
+            }, time*2);
+
+            setTimeout(function () {
+                c = getRandomNumber(6) + 1;
+                $("#three").text(c);
+            }, time*3);
+
+            var numbFour = function () {
+                
+                if (a === b && b === c && a === c) {
+
+                    d += 500;
+
+                } else if (a === b || b === c || a === c) {
+
+                    d += 50;
+
+                } else {
+
+                    d -= 25;
+
+                }
+
+                $("#coins").text(d);
+            }
+
+            setTimeout(numbFour, time*4);
+
+        });
+
+    </script>
+</body>
+
+</html>
