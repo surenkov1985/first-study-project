@@ -1,1 +1,2 @@
-mich-man.ru/projects/first-project
+
+https://mich-man.ru/projects/first-project/
