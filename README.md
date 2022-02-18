@@ -1,1 +1,1 @@
-# first-study-project
+mich-man.ru/projects/first-project
